@@ -15,7 +15,6 @@ public class UserAuth {
                 }
                 else{
                     System.out.println("Incorrect Password");
-                    System.out.println("Please try again");
                     System.out.println("You have " + String.valueOf(3-i) + " more tries");
                 }
             }
