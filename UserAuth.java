@@ -7,12 +7,17 @@ public class UserAuth {
 
         if(userNameAuth(userName)){
             System.out.println("Hello " + userName + " Please enter your password:");
-            String userPass = userInput.nextLine();
-            if(userPassAuth(userPass)){
-                System.out.println("Password ACCEPTED: Logging ON.");
-            }
-            else{
-                System.out.println("Incorrect Password");
+            for (i=0, i<=3, i++){
+                String userPass = userInput.nextLine();
+                if(userPassAuth(userPass)){
+                    System.out.println("Password ACCEPTED: Logging ON.");
+                    break;
+                }
+                else{
+                    System.out.println("Incorrect Password");
+                    System.out.println("Please try again");
+                    System.out.println("You have " + 3-i + " more tries");
+                }
             }
         }
         else{
