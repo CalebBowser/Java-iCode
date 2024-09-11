@@ -1,0 +1,6 @@
+I think that when you have something like 'varType[] newVarName = {stuff};' then it creates an array. An example of this is in line 6, 'String[] cars = {"FORD", "BMW", "MAZDA", "WV", "VOLVO"};'.
+I think that 'varType[]' shows what is the variable type is, and the '[]' tells the computer that those var types will be inside an array stored in 'varName'.
+Then you got the definition, although I have one question, could you, like in C#, Initialize a variable with 'varType varName;' without the definition, or does Java require the definition in the same initializing line?
+If you can, then could you also do it with 'varType[] varName;'?
+
+In conclusion, the 'varType' tells the computer what will be in the array, the '[]' tells the computer that it is going to be an array, the 'varName' tells the computer how I will be accessing the array, and the ' = {stuff};' is the definition and line end of the variable initialization.
