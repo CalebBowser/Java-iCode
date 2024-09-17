@@ -3,7 +3,123 @@ public class hanoiTower {
     public static void print(Object val){
         System.out.println(val);
     }
+    public static Object[][] resetPieceKnowledge(Integer[][] towArr){
+        Integer pie1 = -1;
+        boolean pie1Access = false;
+        Integer pie2 = -1;
+        boolean pie2Access = false;
+        Integer pie3 = -1;
+        boolean pie3Access = false;
+        Integer pie4 = -1;
+        boolean pie4Access = false;
+        Integer pie5 = -1;
+        boolean pie5Access = false;
+        Integer pie6 = -1;
+        boolean pie6Access = false;
+        Integer pie7 = -1;
+        boolean pie7Access = false;
+        Integer pie8 = -1;
+        boolean pie8Access = false;
+        Integer pie9 = -1;
+        boolean pie9Access = false;
+        int counter = 0;
+        for (int piece : towArr[0]){
+            if (piece != 0){
+                if (piece == 1){
+                    if (pie1 == -1){pie1 = 0; if (towArr[0][towArr[0].length] == piece || towArr[0][counter + 1] == 0){pie1Access = true;}}
+                }
+                if (piece == 2){
+                    if (pie2 == -1){pie2 = 0; if (towArr[0][towArr[0].length] == piece || towArr[0][counter + 1] == 0){pie2Access = true;}}
+                }
+                if (piece == 3){
+                    if (pie3 == -1){pie3 = 0; if (towArr[0][towArr[0].length] == piece || towArr[0][counter + 1] == 0){pie3Access = true;}}
+                }
+                if (piece == 4){
+                    if (pie4 == -1){pie4 = 0; if (towArr[0][towArr[0].length] == piece || towArr[0][counter + 1] == 0){pie4Access = true;}}
+                }
+                if (piece == 5){
+                    if (pie5 == -1){pie5 = 0; if (towArr[0][towArr[0].length] == piece || towArr[0][counter + 1] == 0){pie5Access = true;}}
+                }
+                if (piece == 6){
+                    if (pie6 == -1){pie6 = 0; if (towArr[0][towArr[0].length] == piece || towArr[0][counter + 1] == 0){pie6Access = true;}}
+                }
+                if (piece == 7){
+                    if (pie7 == -1){pie7 = 0; if (towArr[0][towArr[0].length] == piece || towArr[0][counter + 1] == 0){pie7Access = true;}}
+                }
+                if (piece == 8){
+                    if (pie8 == -1){pie8 = 0; if (towArr[0][towArr[0].length] == piece || towArr[0][counter + 1] == 0){pie8Access = true;}}
+                }
+                if (piece == 9){
+                    if (pie9 == -1){pie9 = 0; if (towArr[0][towArr[0].length] == piece || towArr[0][counter + 1] == 0){pie9Access = true;}}
+                }
+            }
+        counter += 1;}
+        for (int piece : towArr[1]){
+            if (piece != 0){
+                if (piece == 1){
+                    if (pie1 == -1){pie1 = 1; if (towArr[1][towArr[1].length] == piece || towArr[1][counter + 1] == 0){pie1Access = true;}}
+                }
+                if (piece == 2){
+                    if (pie2 == -1){pie2 = 1; if (towArr[1][towArr[1].length] == piece || towArr[1][counter + 1] == 0){pie2Access = true;}}
+                }
+                if (piece == 3){
+                    if (pie3 == -1){pie3 = 1; if (towArr[1][towArr[1].length] == piece || towArr[1][counter + 1] == 0){pie3Access = true;}}
+                }
+                if (piece == 4){
+                    if (pie4 == -1){pie4 = 1; if (towArr[1][towArr[1].length] == piece || towArr[1][counter + 1] == 0){pie4Access = true;}}
+                }
+                if (piece == 5){
+                    if (pie5 == -1){pie5 = 1; if (towArr[1][towArr[1].length] == piece || towArr[1][counter + 1] == 0){pie5Access = true;}}
+                }
+                if (piece == 6){
+                    if (pie6 == -1){pie6 = 1; if (towArr[1][towArr[1].length] == piece || towArr[1][counter + 1] == 0){pie6Access = true;}}
+                }
+                if (piece == 7){
+                    if (pie7 == -1){pie7 = 1; if (towArr[1][towArr[1].length] == piece || towArr[1][counter + 1] == 0){pie7Access = true;}}
+                }
+                if (piece == 8){
+                    if (pie8 == -1){pie8 = 1; if (towArr[1][towArr[1].length] == piece || towArr[1][counter + 1] == 0){pie8Access = true;}}
+                }
+                if (piece == 9){
+                    if (pie9 == -1){pie9 = 1; if (towArr[1][towArr[1].length] == piece || towArr[1][counter + 1] == 0){pie9Access = true;}}
+                }
+            }
+        }
+        for (int piece : towArr[2]){
+            if (piece != 0){
+                if (piece == 1){
+                    if (pie1 == -1){pie1 = 2; if (towArr[2][towArr[2].length] == piece || towArr[2][counter + 1] == 0){pie1Access = true;}}
+                }
+                if (piece == 2){
+                    if (pie2 == -1){pie2 = 2; if (towArr[2][towArr[2].length] == piece || towArr[2][counter + 1] == 0){pie2Access = true;}}
+                }
+                if (piece == 3){
+                    if (pie3 == -1){pie3 = 2; if (towArr[2][towArr[2].length] == piece || towArr[2][counter + 1] == 0){pie3Access = true;}}
+                }
+                if (piece == 4){
+                    if (pie4 == -1){pie4 = 2; if (towArr[2][towArr[2].length] == piece || towArr[2][counter + 1] == 0){pie4Access = true;}}
+                }
+                if (piece == 5){
+                    if (pie5 == -1){pie5 = 2; if (towArr[2][towArr[2].length] == piece || towArr[2][counter + 1] == 0){pie5Access = true;}}
+                }
+                if (piece == 6){
+                    if (pie6 == -1){pie6 = 2; if (towArr[2][towArr[2].length] == piece || towArr[2][counter + 1] == 0){pie6Access = true;}}
+                }
+                if (piece == 7){
+                    if (pie7 == -1){pie7 = 2; if (towArr[2][towArr[2].length] == piece || towArr[2][counter + 1] == 0){pie7Access = true;}}
+                }
+                if (piece == 8){
+                    if (pie8 == -1){pie8 = 2; if (towArr[2][towArr[2].length] == piece || towArr[2][counter + 1] == 0){pie8Access = true;}}
+                }
+                if (piece == 9){
+                    if (pie9 == -1){pie9 = 2; if (towArr[2][towArr[2].length] == piece || towArr[2][counter + 1] == 0){pie9Access = true;}}
+                }
+            }
+        }
 
+        Object[][] result = {{pie1, pie1Access}, {pie2, pie2Access}, {pie3, pie3Access}, {pie4, pie4Access}, {pie5, pie5Access}, {pie6, pie6Access}, {pie7, pie7Access}, {pie8, pie8Access}, {pie9, pie9Access}, };
+        return result;
+    }
     public static void printTowers(Integer[] tower1, Integer[] tower2, Integer[] tower3){
         print("\nT T T");
         print("1 2 3\n");
@@ -16,16 +132,12 @@ public class hanoiTower {
 
     public static Integer[][] compSolve(Integer[] tower1, Integer[] tower2, Integer[] tower3){
         Random gen = new Random();
-        int target = 3;//gen.nextInt(2, 4);
+        int target = gen.nextInt(2, 4);
         printTowers(tower1, tower2, tower3);
         print("Target tower chosen is: " + target);
         Integer[][] endResult = new Integer[3][9];
         Map<Integer, Integer[]> towers = new HashMap<>();
-        if (tower1.length % 2 == 0){
-            if (target == 3){
-                //Do it later when adding player-defined tower height
-            }
-        }else if(tower1.length % 2 != 0){
+        if(tower1.length % 2 != 0){
             if (target == 3){
                 //Attempt with a for loop algo
                 Integer[] zeroTower = {0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -33,42 +145,6 @@ public class hanoiTower {
                 Map<Integer, Integer> dstMap = new HashMap<>();
                 Map<Integer, Integer> newDstMap = new HashMap<>();
                 Map<Integer, Integer> locMap = new HashMap<>();
-                //Map<Integer, Integer> moveNum = new HashMap<>();
-
-                /* m(p) = 2p + 1
-                 * m = number of moves
-                 * p = number of pieces you want to move
-                 * 
-                 * this is the formula for the chart down below
-                 * Keys: p
-                 * Values: m(p)
-                 * 
-                 * p | m(p)
-                 * _________
-                 * 1 | 1
-                 * 2 | 3
-                 * 3 | 7
-                 * 4 | 15
-                 * 5 | 31
-                 * 6 | 63
-                 * 7 | 127
-                 * 8 | 255
-                 * 9 | 511
-                 * ...
-                 */
-
-                /* I commented this bit out becuz i don't know how it would help me
-
-                moveNum.put(1, 1);
-                moveNum.put(2, 3);
-                moveNum.put(3, 7);
-                moveNum.put(4, 15);
-                moveNum.put(5, 31);
-                moveNum.put(6, 63);
-                moveNum.put(7, 127);
-                moveNum.put(8, 255);
-                moveNum.put(9, 511);
-                */
                 for (int piece : tower1){
                     if (piece % 2 != 0){dstMap.put(piece, 3);}
                     else if(piece % 2 == 0){dstMap.put(piece, 2);}
@@ -180,20 +256,32 @@ public class hanoiTower {
                 endResult[1] = towers.get(2);
                 endResult[2] = towers.get(3);
             }else if (target == 2){
-                //int[][] result = move(tower1, tower2);
-                //tower1 = result[0];
-                //tower2 = result[1];
-                //printTowers(tower1, tower2, tower3);
-                //result = move(tower1, tower3);
-                //tower1 = result[0];
-                //tower3 = result[1];
-                //printTowers(tower1, tower2, tower3);
-                //result = move(tower2, tower3);
-                //tower2 = result[0];
-                //tower3 = result[1];
-                //printTowers(tower1, tower2, tower3);
-                //Finish the sequence
-
+                boolean solved = false;
+                Integer[] dstMap = new Integer[9];
+                for (int i = 0; i <= dstMap.length; i++){
+                    if (i % 2 != 0){
+                        dstMap[i] = 2;
+                    }else if (i % 2 == 0){
+                        dstMap[i] = 3;
+                    }
+                }
+                while (!solved){
+                    Integer[][] towArr = {tower1, tower2, tower3};
+                    Object[][] result = resetPieceKnowledge(towArr);
+                    Object[] pie1 = result[0];
+                    Object[] pie2 = result[1];
+                    Object[] pie3 = result[2];
+                    Object[] pie4 = result[3];
+                    Object[] pie5 = result[4];
+                    Object[] pie6 = result[5];
+                    Object[] pie7 = result[6];
+                    Object[] pie8 = result[7];
+                    Object[] pie9 = result[8];
+                    
+                    for (int piece : towArr[0]){
+                        //go thru each tower, in order from t1 to t3, and look for a piece that is either on top of the wrong one, or not on its target tower.
+                    }
+                }
                 endResult[0] = tower1;
                 endResult[1] = tower2;
                 endResult[2] = tower3;
