@@ -27,18 +27,6 @@ public class hanoiTower {
             }
         }else if(tower1.length % 2 != 0){
             if (target == 3){
-                //int[][] result = move(tower1, tower3);
-                //tower1 = result[0];
-                //tower3 = result[1];
-                //printTowers(tower1, tower2, tower3);
-                //result = move(tower1, tower2);
-                //tower1 = result[0];
-                //tower2 = result[1];
-                //printTowers(tower1, tower2, tower3);
-                //result = move(tower3, tower2);
-                //tower3 = result[0];
-                //tower2 = result[1];
-                //printTowers(tower1, tower2, tower3);
                 //Attempt with a for loop algo
                 Integer[] zeroTower = {0, 0, 0, 0, 0, 0, 0, 0, 0};
                 Integer[] perfectTower = {9, 8, 7, 6, 5, 4, 3, 2, 1};
@@ -89,15 +77,13 @@ public class hanoiTower {
                 towers.put(1, tower1);
                 towers.put(2, tower2);
                 towers.put(3, tower3);
-                int currentPiece = 1;
-                int mainPiece = 1;
-                while(mainPiece <= 9) {
-                    currentPiece = mainPiece;
+                for (int mainPiece = 1; mainPiece <= 9; mainPiece++){
                     //Finds the tower the piece is currently in for the move function to work properly becuz ima moron and made it move from tower to tower
                     Integer[] fromTower = towers.get(locMap.get(mainPiece));
                     //Finds the tower that the piece related to pieceNum is scheduled to in the 'dstMap'
                     Integer[] toTower = towers.get(dstMap.get(mainPiece));
                     Integer[][] result = move(fromTower, toTower);
+                    print(mainPiece);
                     if (Arrays.equals(towers.get(1), zeroTower)){
                         if (Arrays.equals(towers.get(2), zeroTower)){
                             if (Arrays.equals(towers.get(3), perfectTower)){
@@ -138,16 +124,14 @@ public class hanoiTower {
                                 }
                             }
                         }
-                    }
-            
-                    currentPiece = mainPiece - 1;
-                    if (currentPiece > 1){
-                    while (currentPiece > 0){
+
+                    for (int currentPiece = mainPiece - 1; currentPiece > 1; currentPiece--){
                         //Finds the tower the piece is currently in for the move function to work properly becuz ima moron and made it move from tower to tower
-                        Integer[] fromTower = towers.get(locMap.get(currentPiece));
+                        fromTower = towers.get(locMap.get(currentPiece));
                         //Finds the tower that the piece related to pieceNum is scheduled to in the 'dstMap'
-                        Integer[] toTower = towers.get(dstMap.get(currentPiece));
-                        Integer[][] result = move(fromTower, toTower);
+                        toTower = towers.get(dstMap.get(currentPiece));
+                        result = move(fromTower, toTower);
+                        print(currentPiece);
                         if (towers.get(1) == zeroTower){
                             if (towers.get(2) == zeroTower){
                                 if (towers.get(3) == perfectTower){
@@ -166,8 +150,8 @@ public class hanoiTower {
                             if (part != 0){
                                 if (part % 2 != 0){newDstMap.put(part, 3);}
                                 else if(part % 2 == 0){newDstMap.put(part, 2);}
-                                }
                             }
+                        }
                         for (int part : towers.get(2)){
                             if (part != 0){
                                 if (part < 9){
@@ -188,9 +172,7 @@ public class hanoiTower {
                                 }
                             }
                         }
-                        currentPiece -= 1;}
                     }
-                    mainPiece -= 1;
                 }
                 //Finish the sequence
 
@@ -216,7 +198,7 @@ public class hanoiTower {
                 endResult[1] = tower2;
                 endResult[2] = tower3;
             }
-        return endResult;}
+        }return endResult;}
 
     public static Integer[] listToIntArray(List<Integer> list) {
         // Create an Integer[] of the same size as the list
