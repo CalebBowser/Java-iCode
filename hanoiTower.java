@@ -20,6 +20,7 @@ public class hanoiTower {
         printTowers(tower1, tower2, tower3);
         print("Target tower chosen is: " + target);
         Integer[][] endResult = new Integer[3][9];
+        Map<Integer, Integer[]> towers = new HashMap<>();
         if (tower1.length % 2 == 0){
             if (target == 3){
                 //Do it later when adding player-defined tower height
@@ -85,7 +86,6 @@ public class hanoiTower {
                     else if(piece % 2 == 0){dstMap.put(piece, 2);}
                     locMap.put(piece, 1);
                 }
-                Map<Integer, Integer[]> towers = new HashMap<>();
                 towers.put(1, tower1);
                 towers.put(2, tower2);
                 towers.put(3, tower3);
@@ -98,9 +98,9 @@ public class hanoiTower {
                     //Finds the tower that the piece related to pieceNum is scheduled to in the 'dstMap'
                     Integer[] toTower = towers.get(dstMap.get(mainPiece));
                     Integer[][] result = move(fromTower, toTower);
-                    if (towers.get(1) == zeroTower){
-                        if (towers.get(2) == zeroTower){
-                            if (towers.get(3) == perfectTower){
+                    if (Arrays.equals(towers.get(1), zeroTower)){
+                        if (Arrays.equals(towers.get(2), zeroTower)){
+                            if (Arrays.equals(towers.get(3), perfectTower)){
                                 break;
                             }
                         }
@@ -140,10 +140,58 @@ public class hanoiTower {
                         }
                     }
             
-            
-                    for (int i = mainPiece; i>0;i--){
-                        
+                    currentPiece = mainPiece - 1;
+                    if (currentPiece > 1){
+                    while (currentPiece > 0){
+                        //Finds the tower the piece is currently in for the move function to work properly becuz ima moron and made it move from tower to tower
+                        Integer[] fromTower = towers.get(locMap.get(currentPiece));
+                        //Finds the tower that the piece related to pieceNum is scheduled to in the 'dstMap'
+                        Integer[] toTower = towers.get(dstMap.get(currentPiece));
+                        Integer[][] result = move(fromTower, toTower);
+                        if (towers.get(1) == zeroTower){
+                            if (towers.get(2) == zeroTower){
+                                if (towers.get(3) == perfectTower){
+                                    break;
+                                }
+                            }
+                        }
+                        towers.remove(locMap.get(currentPiece));
+                        towers.put(locMap.get(currentPiece), result[0]);
+                        towers.remove(dstMap.get(currentPiece));
+                        towers.put(dstMap.get(currentPiece), result[1]);
+                        locMap.remove(currentPiece);
+                        locMap.put(currentPiece, dstMap.get(currentPiece));
+                        printTowers(towers.get(1), towers.get(2), towers.get(3));
+                        for (int part : towers.get(1)){
+                            if (part != 0){
+                                if (part % 2 != 0){newDstMap.put(part, 3);}
+                                else if(part % 2 == 0){newDstMap.put(part, 2);}
+                                }
+                            }
+                        for (int part : towers.get(2)){
+                            if (part != 0){
+                                if (part < 9){
+                                    if (locMap.get(part + 1) == 1){
+                                        newDstMap.put(part, 0);
+                                    }else{
+                                        newDstMap.put(part, locMap.get(part+1));
+                                    }
+                                }else if (part == 9){
+                                    newDstMap.put(part, 3);
+                                }
+                            }
+                        }
+                        for (int part : towers.get(3)){
+                            if (part != 0){
+                                if (part == 9){
+
+                                }
+                            }
+                        }
+                        currentPiece -= 1;}
                     }
+                    mainPiece -= 1;
+                }
                 //Finish the sequence
 
                 endResult[0] = towers.get(1);
@@ -168,9 +216,7 @@ public class hanoiTower {
                 endResult[1] = tower2;
                 endResult[2] = tower3;
             }
-        }
-        return endResult;
-    }
+        return endResult;}
 
     public static Integer[] listToIntArray(List<Integer> list) {
         // Create an Integer[] of the same size as the list
