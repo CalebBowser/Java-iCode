@@ -279,7 +279,7 @@ public class hanoiTower {
                     Object[] pie9 = result[8];
                     
                     for (int piece : towArr[0]){
-                        //go thru each tower, in order from t1 to t3, and look for a piece that is either on top of the wrong one, or not on its target tower.
+                        //go thru each tower, in order from t1 to t3, and look for a piece that is either on top of the wrong one, or not on its target tower. Then move and break.
                     }
                 }
                 endResult[0] = tower1;
