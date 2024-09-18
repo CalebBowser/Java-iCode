@@ -131,8 +131,8 @@ public class hanoiTower {
     }
 
     public static Integer[][] compSolve(Integer[] tower1, Integer[] tower2, Integer[] tower3){
-        Random gen = new Random();
-        int target = gen.nextInt(2, 4);
+        //Random gen = new Random();
+        int target = 2;//gen.nextInt(2, 4);
         printTowers(tower1, tower2, tower3);
         print("Target tower chosen is: " + target);
         Integer[][] endResult = new Integer[3][9];
@@ -268,18 +268,58 @@ public class hanoiTower {
                 while (!solved){
                     Integer[][] towArr = {tower1, tower2, tower3};
                     Object[][] result = resetPieceKnowledge(towArr);
-                    Object[] pie1 = result[0];
-                    Object[] pie2 = result[1];
-                    Object[] pie3 = result[2];
-                    Object[] pie4 = result[3];
-                    Object[] pie5 = result[4];
-                    Object[] pie6 = result[5];
-                    Object[] pie7 = result[6];
-                    Object[] pie8 = result[7];
-                    Object[] pie9 = result[8];
-                    
+                    Map<Integer, Object[]> pieces = new HashMap<>();
+                    //Integer[][] moveRes = new Integer[2][9];
+                    //Object fls = false;
+                    Object tru = true;
+                    pieces.put(1, result[0]);
+                    pieces.put(2, result[1]);
+                    pieces.put(3, result[2]);
+                    pieces.put(4, result[3]);
+                    pieces.put(5, result[4]);
+                    pieces.put(6, result[5]);
+                    pieces.put(7, result[6]);
+                    pieces.put(8, result[7]);
+                    pieces.put(9, result[8]);
+                    int lastPiece = -1;
+                    int counter = 1;
                     for (int piece : towArr[0]){
-                        //go thru each tower, in order from t1 to t3, and look for a piece that is either on top of the wrong one, or not on its target tower. Then move and break.
+                        if (piece != 0){
+                            if (lastPiece != -1){
+                                if (piece != lastPiece - 1){
+                                    if (piece == counter){
+                                        if (pieces.get(counter)[1] == tru){
+                                            if (pieces.get(counter + 1)[1] == tru){
+                                                move(towArr[(int) pieces.get(counter)[0]], towArr[(int) pieces.get(counter + 1)[0]]);
+                                                result = resetPieceKnowledge(towArr);
+                                                pieces.remove(1);
+                                                pieces.remove(2);
+                                                pieces.remove(3);
+                                                pieces.remove(4);
+                                                pieces.remove(5);
+                                                pieces.remove(6);
+                                                pieces.remove(7);
+                                                pieces.remove(8);
+                                                pieces.remove(9);
+                                                pieces.put(1, result[0]);
+                                                pieces.put(2, result[1]);
+                                                pieces.put(3, result[2]);
+                                                pieces.put(4, result[3]);
+                                                pieces.put(5, result[4]);
+                                                pieces.put(6, result[5]);
+                                                pieces.put(7, result[6]);
+                                                pieces.put(8, result[7]);
+                                                pieces.put(9, result[8]);
+                                                break;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            //finish sequence
+                            counter += 1;
+                            //go thru each tower, in order from t1 to t3, and look for a piece that is either on top of the wrong one, or not on its target tower. Then move and break.
+                        }
                     }
                 }
                 endResult[0] = tower1;
@@ -300,12 +340,16 @@ public class hanoiTower {
         return result;
     }
 
-    public static Integer[][] move(Integer[] tower1, Integer[] tower2) {
+    public static Integer[][] move(Object[] tower1, Object[] tower2) {
+        // Convert Object[] into Integer[] for working with
+        // I know that proper coding would be to check if it actually is an instance of Intenger[], but I know that it is.
+        Integer[] newTower1 = (Integer[]) tower1;
+        Integer[] newTower2 = (Integer[]) tower2;
         // Convert Integer[] to List<Integer> for easier manipulation
-        List<Integer> T1 = new ArrayList<>(Arrays.asList(tower1));
-        List<Integer> T2 = new ArrayList<>(Arrays.asList(tower2));
+        List<Integer> T1 = new ArrayList<>(Arrays.asList(newTower1));
+        List<Integer> T2 = new ArrayList<>(Arrays.asList(newTower2));
     
-        // Find the topmost piece in tower1 (the piece to move)
+        // Find the topmost piece in newTower1 (the piece to move)
         int piece = 0;
         int topIndexT1 = -1;
         for (int i = T1.size() - 1; i >= 0; i--) {
@@ -316,13 +360,13 @@ public class hanoiTower {
             }
         }
     
-        // If no piece found (i.e., tower1 is empty)
+        // If no piece found (i.e., newTower1 is empty)
         if (piece == 0) {
             print("You cannot move nothing");
-            return new Integer[][]{tower1, tower2}; // Return original towers if no piece to move
+            return new Integer[][]{newTower1, newTower2}; // Return original towers if no piece to move
         }
     
-        // Find the first empty spot in tower2
+        // Find the first empty spot in newTower2
         int emptyIndexT2 = -1;
         for (int i = 0; i < T2.size()-1; i++) {
             if (T2.get(i) == 0) {
@@ -331,21 +375,21 @@ public class hanoiTower {
             }
         }
     
-        // If tower2 has no empty space left
+        // If newTower2 has no empty space left
         if (emptyIndexT2 == -1) {
             print("You cannot move the piece, destination tower is full");
-            return new Integer[][]{tower1, tower2};
+            return new Integer[][]{newTower1, newTower2};
         }
     
         // Check if the move is valid (can't place a larger piece on a smaller one)
         if (T2.get(emptyIndexT2 + 1) > piece) {
             print("Invalid move: cannot place a larger piece on a smaller piece");
-            return new Integer[][]{tower1, tower2};
+            return new Integer[][]{newTower1, newTower2};
         }
     
-        // Perform the move: remove from tower1 and place in tower2
-        T1.set(topIndexT1, 0); // Remove from top of tower1
-        T2.set(emptyIndexT2, piece); // Place on top of tower2
+        // Perform the move: remove from newTower1 and place in newTower2
+        T1.set(topIndexT1, 0); // Remove from top of newTower1
+        T2.set(emptyIndexT2, piece); // Place on top of newTower2
     
         // Convert List<Integer> back to Integer[] arrays
         Integer[] newT1 = listToIntArray(T1);
