@@ -6,9 +6,15 @@ public class ticTac {
 
     public static void boardState(char[][] state){
         for (char[] row : state){
-            String char1 = row[0] + "\u0332";
-            String char2 = row[1] + "\u0332";
-            String char3 = row[2] + "\u0332";
+            Object char1 = null;
+            Object char2 = null;
+            Object char3 = null;
+            if (row[0] != ' '){char1 = row[0] + "\u0332";}
+            else{char1 = '_';}
+            if (row[1] != ' '){char2 = row[1] + "\u0332";}
+            else{char2 = '_';}
+            if (row[2] != ' '){char3 = row[2] + "\u0332";}
+            else{char3 = '_';}
             print(char1 + "|" + char2 + "|" + char3);
         }
     }
