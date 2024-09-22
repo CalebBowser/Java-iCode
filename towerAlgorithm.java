@@ -17,7 +17,6 @@ public class towerAlgorithm {
             Integer[] pieLoc = new Integer[9];
             for (Integer[] tower : towers){
                 for (int pie : tower){
-                    //if pie is null, then change pie to 0
                     if (tower == towers[0]){
                         if (pie != 0){
                             pieLoc[pie - 1] = 0;
@@ -43,8 +42,8 @@ public class towerAlgorithm {
             }
             for (int pie : towers[0]){
                 Integer[][] result = move(towers[pieLoc[pie -1]], towers[dstMap[pie -1]]);
-                towers[pieLoc[pie -1]] = result[0];
-                towers[dstMap[pie -1]] = result[1];
+                towers[pieLoc[pie - 1]] = result[0];
+                towers[dstMap[pie - 1]] = result[1];
                 printTowers(towers[0], towers[1], towers[2]);
                 towers = fixTowers(towers);
             }
@@ -310,7 +309,7 @@ public class towerAlgorithm {
         return new Integer[][]{newT1, newT2};
     }
     public static void main(String[] args){
-        Integer[][] towers = {{9, 8, 7, 6, 5, 4, 3, 2, 1}, new Integer[9], new Integer[9]};
+        Integer[][] towers = {{9, 8, 7, 6, 5, 4, 3, 2, 1}, {0, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 0}};
         solve(towers, 2);
         
     }
