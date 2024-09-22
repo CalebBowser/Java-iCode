@@ -75,98 +75,102 @@ public class towerAlgorithm {
                 for (int piece : tower){
                     if (piece != 0){
                         if (piece == 1){
-                            if (p1loc != -1){p1loc = 0;}}
+                            if (p1loc == -1){p1loc = 0;}}
                             
                         else if (piece == 2){
-                            if (p2loc != -1){p2loc = 0;}}
+                            if (p2loc == -1){p2loc = 0;}}
                             
                         else if (piece == 3){
-                            if (p3loc != -1){p3loc = 0;}}
+                            if (p3loc == -1){p3loc = 0;}}
                             
                         else if (piece == 4){
-                            if (p4loc != -1){p4loc = 0;}}
+                            if (p4loc == -1){p4loc = 0;}}
                             
                         else if (piece == 5){
-                            if (p5loc != -1){p5loc = 0;}}
+                            if (p5loc == -1){p5loc = 0;}}
                             
                         else if (piece == 6){
-                            if (p6loc != -1){p6loc = 0;}}
+                            if (p6loc == -1){p6loc = 0;}}
                             
                         else if (piece == 7){
-                            if (p7loc != -1){p7loc = 0;}}
+                            if (p7loc == -1){p7loc = 0;}}
                             
                         else if (piece == 8){
-                            if (p8loc != -1){p8loc = 0;}}
+                            if (p8loc == -1){p8loc = 0;}}
                             
                         else if (piece == 9){
-                            if (p9loc != -1){p9loc = 0;}}
+                            if (p9loc == -1){p9loc = 0;}}
                     }
                 }
             }else if (tower == towers[1]){
                 for (int piece : tower){
                     if (piece != 0){
                         if (piece == 1){
-                            if (p1loc != -1){p1loc = 1;}}
+                            if (p1loc == -1){p1loc = 1;}}
                             
                         else if (piece == 2){
-                            if (p2loc != -1){p2loc = 1;}}
+                            if (p2loc == -1){p2loc = 1;}}
                             
                         else if (piece == 3){
-                            if (p3loc != -1){p3loc = 1;}}
+                            if (p3loc == -1){p3loc = 1;}}
                             
                         else if (piece == 4){
-                            if (p4loc != -1){p4loc = 1;}}
+                            if (p4loc == -1){p4loc = 1;}}
                             
                         else if (piece == 5){
-                            if (p5loc != -1){p5loc = 1;}}
+                            if (p5loc == -1){p5loc = 1;}}
                             
                         else if (piece == 6){
-                            if (p6loc != -1){p6loc = 1;}}
+                            if (p6loc == -1){p6loc = 1;}}
                             
                         else if (piece == 7){
-                            if (p7loc != -1){p7loc = 1;}}
+                            if (p7loc == -1){p7loc = 1;}}
                             
                         else if (piece == 8){
-                            if (p8loc != -1){p8loc = 1;}}
+                            if (p8loc == -1){p8loc = 1;}}
                             
                         else if (piece == 9){
-                            if (p9loc != -1){p9loc = 1;}}
+                            if (p9loc == -1){p9loc = 1;}}
                     }
                 }
             }else if (tower == towers[2]){
                 for (int piece : tower){
                     if (piece != 0){
                         if (piece == 1){
-                            if (p1loc != -1){p1loc = 2;}}
+                            if (p1loc == -1){p1loc = 2;}}
                             
                         else if (piece == 2){
-                            if (p2loc != -1){p2loc = 2;}}
+                            if (p2loc == -1){p2loc = 2;}}
                             
                         else if (piece == 3){
-                            if (p3loc != -1){p3loc = 2;}}
+                            if (p3loc == -1){p3loc = 2;}}
                             
                         else if (piece == 4){
-                            if (p4loc != -1){p4loc = 2;}}
+                            if (p4loc == -1){p4loc = 2;}}
                             
                         else if (piece == 5){
-                            if (p5loc != -1){p5loc = 2;}}
+                            if (p5loc == -1){p5loc = 2;}}
                             
                         else if (piece == 6){
-                            if (p6loc != -1){p6loc = 2;}}
+                            if (p6loc == -1){p6loc = 2;}}
                             
                         else if (piece == 7){
-                            if (p7loc != -1){p7loc = 2;}}
+                            if (p7loc == -1){p7loc = 2;}}
                             
                         else if (piece == 8){
-                            if (p8loc != -1){p8loc = 2;}}
+                            if (p8loc == -1){p8loc = 2;}}
                             
                         else if (piece == 9){
-                            if (p9loc != -1){p9loc = 2;}}
+                            if (p9loc == -1){p9loc = 2;}}
                     }
                 }
             }
         }
         Integer[] pieLocs = {null, p1loc, p2loc, p3loc, p4loc, p5loc, p6loc, p7loc, p8loc, p9loc};
+        for (Object loc : pieLocs){
+            print(loc);
+        }
+        // Add functions that have logic for 9↓, 8↓, 7↓, 6↓, 5↓, 4↓, 3↓, 2↓, 1↓
         for (int pie1 = biggestPiece - 1; pie1 > 0; pie1--){
             for (int pie2 = pie1 - 1; pie2 > 0; pie2--){
                 for (int pie3 = pie2 - 1; pie3 > 0; pie3--){
@@ -295,9 +299,16 @@ public class towerAlgorithm {
         }
     
         // Check if the move is valid (can't place a larger piece on a smaller one)
-        if (T2.get(emptyIndexT2 + 1) > piece) {
-            print("Invalid move: cannot place a larger piece on a smaller piece");
-            return new Integer[][]{newTower1, newTower2};
+        if (emptyIndexT2 != 0){
+            if (T2.get(emptyIndexT2 - 1) <= piece && T2.get(emptyIndexT2 - 1) != 0) {
+                print("Invalid move: cannot place a larger piece on a smaller piece");
+                return new Integer[][]{newTower1, newTower2};
+            }
+        }else if (emptyIndexT2 == 0){
+            if (T2.get(emptyIndexT2) <= piece && T2.get(emptyIndexT2) != 0) {
+                print("Invalid move: cannot place a larger piece on a smaller piece");
+                return new Integer[][]{newTower1, newTower2};
+            }
         }
     
         // Perform the move: remove from newTower1 and place in newTower2
