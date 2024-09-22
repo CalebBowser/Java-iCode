@@ -32,14 +32,16 @@ public class towerAlgorithm {
                     }
                 }
             }
+            for (int pie : pieLoc){print(pie);}
             Integer[] dstMap = new Integer[9];
             for (int pie = 9; pie > 0; pie--){
                 if (pie % 2 != 0){
-                    dstMap[pie - 1] = target;
+                    dstMap[pie - 1] = 1;
                 }else if (pie % 2 == 0){
-                    dstMap[pie - 1] = 3;
+                    dstMap[pie - 1] = 2;
                 }
             }
+            for (int pie : dstMap){print(pie);}
             for (int pie : towers[0]){
                 Integer[][] result = move(towers[pieLoc[pie -1]], towers[dstMap[pie -1]]);
                 towers[pieLoc[pie - 1]] = result[0];
@@ -174,63 +176,63 @@ public class towerAlgorithm {
                                 for (int pie7 = pie6 - 1; pie7 > 0; pie7--){
                                     for (int pie8 = pie7 - 1; pie8 > 0; pie8--){
                                         for (int pie9 = pie8 - 1; pie9 > 0; pie9--){
-                                            if (pieLocs[pie8] != 0){
+                                            if (pieLocs[pie8] != 0 && pieLocs[pie9] >= 0){
                                                 Integer[][] result = move(towers[pieLocs[pie9]], towers[pieLocs[pie8]]);
                                                 towers[pieLocs[pie9]] = result[0];
                                                 towers[pieLocs[pie8]] = result[1];
                                                 printTowers(towers[0], towers[1], towers[2]);
                                             }
                                         }
-                                        if (pieLocs[pie7] != 0){
+                                        if (pieLocs[pie7] != 0 && pieLocs[pie8] >= 0){
                                             Integer[][] result = move(towers[pieLocs[pie8]], towers[pieLocs[pie7]]);
                                             towers[pieLocs[pie8]] = result[0];
                                             towers[pieLocs[pie7]] = result[1];
                                             printTowers(towers[0], towers[1], towers[2]);
                                         }
                                     }
-                                    if (pieLocs[pie6] != 0){
+                                    if (pieLocs[pie6] != 0 && pieLocs[pie7] >= 0){
                                         Integer[][] result = move(towers[pieLocs[pie7]], towers[pieLocs[pie6]]);
                                         towers[pieLocs[pie7]] = result[0];
                                         towers[pieLocs[pie6]] = result[1];
                                         printTowers(towers[0], towers[1], towers[2]);
                                     }
                                 }
-                                if (pieLocs[pie5] != 0){
+                                if (pieLocs[pie5] != 0 && pieLocs[pie6] >= 0){
                                     Integer[][] result = move(towers[pieLocs[pie6]], towers[pieLocs[pie5]]);
                                     towers[pieLocs[pie6]] = result[0];
                                     towers[pieLocs[pie5]] = result[1];
                                     printTowers(towers[0], towers[1], towers[2]);
                                 }
                             }
-                            if (pieLocs[pie4] != 0){
+                            if (pieLocs[pie4] != 0 && pieLocs[pie5] >= 0){
                                 Integer[][] result = move(towers[pieLocs[pie5]], towers[pieLocs[pie4]]);
                                 towers[pieLocs[pie5]] = result[0];
                                 towers[pieLocs[pie4]] = result[1];
                                 printTowers(towers[0], towers[1], towers[2]);
                             }
                         }
-                        if (pieLocs[pie3] != 0){
+                        if (pieLocs[pie3] != 0 && pieLocs[pie4] >= 0){
                             Integer[][] result = move(towers[pieLocs[pie4]], towers[pieLocs[pie3]]);
                             towers[pieLocs[pie4]] = result[0];
                             towers[pieLocs[pie3]] = result[1];
                             printTowers(towers[0], towers[1], towers[2]);
                         }
                     }
-                    if (pieLocs[pie2] != 0){
+                    if (pieLocs[pie2] != 0 && pieLocs[pie3] >= 0){
                         Integer[][] result = move(towers[pieLocs[pie3]], towers[pieLocs[pie2]]);
                         towers[pieLocs[pie3]] = result[0];
                         towers[pieLocs[pie2]] = result[1];
                         printTowers(towers[0], towers[1], towers[2]);
                     }
                 }
-                if (pieLocs[pie1] != 0){
+                if (pieLocs[pie1] != 0 && pieLocs[pie2] >= 0){
                     Integer[][] result = move(towers[pieLocs[pie2]], towers[pieLocs[pie1]]);
                     towers[pieLocs[pie2]] = result[0];
                     towers[pieLocs[pie1]] = result[1];
                     printTowers(towers[0], towers[1], towers[2]);
                 }
             }
-            if (pieLocs[biggestPiece] != 0){
+            if (pieLocs[biggestPiece] != 0 && pieLocs[pie1] >= 0){
                 Integer[][] result = move(towers[pieLocs[pie1]], towers[pieLocs[biggestPiece]]);
                 towers[pieLocs[pie1]] = result[0];
                 towers[pieLocs[biggestPiece]] = result[1];
