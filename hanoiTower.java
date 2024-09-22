@@ -268,10 +268,11 @@ public class hanoiTower {
                 while (!solved){
                     Integer[][] towArr = {tower1, tower2, tower3};
                     Object[][] result = resetPieceKnowledge(towArr);
-                    Map<Integer, Object[]> pieces = new HashMap<>();
+                    Object[][] pieces = result;
                     //Integer[][] moveRes = new Integer[2][9];
                     //Object fls = false;
                     Object tru = true;
+                    /*Should delete
                     pieces.put(1, result[0]);
                     pieces.put(2, result[1]);
                     pieces.put(3, result[2]);
@@ -280,7 +281,7 @@ public class hanoiTower {
                     pieces.put(6, result[5]);
                     pieces.put(7, result[6]);
                     pieces.put(8, result[7]);
-                    pieces.put(9, result[8]);
+                    pieces.put(9, result[8]);*/
                     int lastPiece = -1;
                     int counter = 1;
                     for (int piece : towArr[0]){
@@ -288,28 +289,10 @@ public class hanoiTower {
                             if (lastPiece != -1){
                                 if (piece != lastPiece - 1){
                                     if (piece == counter){
-                                        if (pieces.get(counter)[1] == tru){
-                                            if (pieces.get(counter + 1)[1] == tru){
-                                                move(towArr[(int) pieces.get(counter)[0]], towArr[(int) pieces.get(counter + 1)[0]]);
-                                                result = resetPieceKnowledge(towArr);
-                                                pieces.remove(1);
-                                                pieces.remove(2);
-                                                pieces.remove(3);
-                                                pieces.remove(4);
-                                                pieces.remove(5);
-                                                pieces.remove(6);
-                                                pieces.remove(7);
-                                                pieces.remove(8);
-                                                pieces.remove(9);
-                                                pieces.put(1, result[0]);
-                                                pieces.put(2, result[1]);
-                                                pieces.put(3, result[2]);
-                                                pieces.put(4, result[3]);
-                                                pieces.put(5, result[4]);
-                                                pieces.put(6, result[5]);
-                                                pieces.put(7, result[6]);
-                                                pieces.put(8, result[7]);
-                                                pieces.put(9, result[8]);
+                                        if (pieces[counter - 1][1] == tru){
+                                            if (pieces[counter][1] == tru){
+                                                move(towArr[(int) pieces[counter - 1][0]], towArr[(int) pieces[counter][0]]);
+                                                pieces = resetPieceKnowledge(towArr);
                                                 break;
                                             }
                                         }
