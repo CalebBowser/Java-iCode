@@ -14,6 +14,7 @@ public class ticTac {
             int row = inGet.nextInt() - 1;
             if (xTurn){state[row][column] = 'x';}
             else if (!xTurn){state[row][column] = 'o';}
+            boardState(state);
             for (int i = 0; i <= 2; i++)
                 if (state[i] == xWinRow){print("Player 2 Wins!"); break;}
         }
