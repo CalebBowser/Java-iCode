@@ -8,5 +8,6 @@ public class log {
             int getLog = inner.nextInt();
             System.out.println(getLog^2^-2);
         }
+        inner.close();
     }
 }
