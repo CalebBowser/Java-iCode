@@ -7,6 +7,11 @@ public class log {
             System.out.println("What would like to log?: ");
             int getLog = inner.nextInt();
             System.out.println(getLog^2^-2);
+            System.out.println("Would you like another log?:");
+            String decide = inner.nextLine();
+            if (decide != "Y" || decide != "y"){
+                stop == "yes";
+            }
         }
         inner.close();
     }
