@@ -18,6 +18,6 @@ public abstract class Human {
     //Setters
     public void setName(String name_){this.name = name_;}
     public void setAge(int age_){this.age = age_;}
-    public void setGender(String gender_){this.gender = gedner_;}
+    public void setGender(String gender_){this.gender = gender_;}
 
 }
