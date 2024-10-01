@@ -1,11 +1,12 @@
-import java.io.Console;
-
 public class Array_example {
     public static void main(String[] args){
         // How to create arrays
         String[] cars = {"FORD", "BMW", "MAZDA", "WV", "VOLVO"};
         char[] YMCA_chars = {'Y', 'M', 'C', 'A'};
         int[] prime_nums = {2, 3, 5, 7, 11};
+        for (int num : prime_nums){
+            System.out.println(num);
+        }
 
 
         // Outputting values in an array
