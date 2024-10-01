@@ -13,7 +13,7 @@ public abstract class Snake {
     double killSpeed;
     boolean treeClimb;
 
-    // Constructors set up class when created (this 'function' gets called on creation of an instance of 'dog' class)
+    // Constructors set up class when created (this 'function' gets called on creation of an instance of 'snake' class)
    public Snake(String name_, int age_, int length_, String[] colorPattern_, double speed_, boolean venomous_, String venomType_, double killSpeed_, boolean treeClimb_){
        // Sets the attributes from the input
        this.name = name_;
