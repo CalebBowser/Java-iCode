@@ -10,7 +10,7 @@ public class log {
             System.out.println("Would you like another log?:");
             String decide = inner.nextLine();
             if (decide != "Y" || decide != "y"){
-                stop == "yes";
+                stop = "yes";
             }
         }
         inner.close();
