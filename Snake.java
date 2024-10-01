@@ -63,7 +63,7 @@ public abstract class Snake {
         // Creates the array to pass to the snake constructor
         String[] colorPattern = {"red", "blue", "orange"};
         // Create an class-object (instance) of the snake class
-        Snake mySnake = new Snake("Mr. Cheese", 30, 200, colorPattern, 10, true, "Neurotoxin", 0.12, false){}
+        Snake mySnake = new Snake("Mr. Cheese", 30, 200, colorPattern, 10, true, "Neurotoxin", 0.12, false){};
         // Goes through everything in the report
         for (Object part : mySnake.report()){
             // Checks if the part of the report is a String array, which would mean that it is the color pattern
