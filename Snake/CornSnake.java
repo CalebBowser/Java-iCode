@@ -25,7 +25,7 @@ public class CornSnake extends Snake{
             counter += 1;
         }
         //Adds the owner value
-        rep1[9] = super.getName() + " owner is " + getOwner();
+        rep1[9] = super.getName() + "'s owner is " + getOwner();
 
         return rep1;
     }

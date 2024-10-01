@@ -67,7 +67,9 @@ public abstract class Snake {
                 System.out.println("It is;");
                 for (String color : colors){
                     // Printing out each color
-                    System.out.println(color);
+                    if (color != String.valueOf(null)){
+                        System.out.println(color);
+                    }
                 }
                 System.out.println("colors.");
             // Checks if the part is instead a String
