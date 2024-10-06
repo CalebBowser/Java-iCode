@@ -12,31 +12,47 @@ public class towerAlgorithm {
         print("\nT T T");
         print("1 2 3\n");
     }
-    
-    public static Integer[] listToIntArray(List<Integer> list) {
-        // Create an Integer[] of the same size as the list
-        Integer[] result = new Integer[list.size()];
-
-        // Fill the Integer[] by unboxing Integer values to int
-        for (int i = 0; i < list.size(); i++) {
-            result[i] = list.get(i); // unboxing Integer to int
-        }
-
-        return result;
-    }
-
     public static int[][] move(int[] tower1, int[] tower2) {
+        //Finding location of the piece being moved
         int tower1Pie = -1;
         int counter = 0;
         for (int part : tower1){
             if (part == 0){
-                tower1Pie = counter;
+                tower1Pie = counter - 1;
                 break;
             }counter+=1;
         }
         if (tower1Pie == -1){
             tower1Pie = tower1.length;
         }
+        //Finding where to put the piece
+        int tower2Pie = -1;
+        counter = 0;
+        for (int part : tower2){
+            if (part == 0){
+                tower2Pie = counter;
+                break;
+            }counter += 1;
+        }
+        if (tower2Pie == -1){
+            print("There is no space in the target tower!");
+            int[][] towers = {tower1, tower2};
+            return towers;
+        }
+        //Checking if piece bigger than what will be below it
+        if (tower1[tower1Pie] > tower2[tower2Pie - 1]){
+            print("You cannot put a bigger piece onto a smaller piece!");
+            int[][] towers = {tower1, tower2};
+            return towers;
+        }
+        //Doing the move
+        int[] T1 = tower1;
+        int[] T2 = tower2;
+        int piece = T1[tower1Pie];
+        T2[tower2Pie] = piece;
+        T1[tower1Pie] = 0;
+        int[][] towers = {T1, T2};
+        return towers;
     }
     public static void main(String[] args){
         int[] tower1 = {9, 8, 7, 6, 5, 4, 3, 2, 1};
