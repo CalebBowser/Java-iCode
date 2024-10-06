@@ -1,9 +1,20 @@
-import java.util.*;
 public class towerAlgorithm {
     public static void print(Object val){
         System.out.println(val);
     }
     public static void printTowers(Integer[] tower1, Integer[] tower2, Integer[] tower3){
+        print("\nT T T");
+        print("1 2 3\n");
+        for (int i = 1; i <= 9; i++) {
+            print(tower1[tower1.length - i] + " " + tower2[tower2.length - i] + " " + tower3[tower3.length - i]);
+        }
+        print("\nT T T");
+        print("1 2 3\n");
+    }
+    public static void printTowers(int[][] towers){
+        int[] tower1 = towers[0];
+        int[] tower2 = towers[1];
+        int[] tower3 = towers[2];
         print("\nT T T");
         print("1 2 3\n");
         for (int i = 1; i <= 9; i++) {
@@ -59,5 +70,10 @@ public class towerAlgorithm {
         int[] tower2 = {0, 0, 0, 0, 0, 0, 0, 0, 0};
         int[] tower3 = {0, 0, 0, 0, 0, 0, 0, 0, 0};
         int[][] towers = {tower1, tower2, tower3};
+        //This is a test of the move function
+        int[][] result = move(tower1, tower2);
+        towers[0] = result[0];
+        towers[1] = result[1];
+        printTowers(towers);
     }
 }
