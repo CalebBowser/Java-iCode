@@ -34,7 +34,7 @@ public class towerAlgorithm {
             }counter+=1;
         }
         if (tower1Pie == -1){
-            tower1Pie = tower1.length;
+            tower1Pie = tower1.length - 1;
         }
         //Finding where to put the piece
         int tower2Pie = -1;
@@ -51,10 +51,12 @@ public class towerAlgorithm {
             return towers;
         }
         //Checking if piece bigger than what will be below it
-        if (tower1[tower1Pie] > tower2[tower2Pie - 1]){
-            print("You cannot put a bigger piece onto a smaller piece!");
-            int[][] towers = {tower1, tower2};
-            return towers;
+        if (tower2Pie != 0){
+            if (tower1[tower1Pie] > tower2[tower2Pie - 1]){
+                print("You cannot put a bigger piece onto a smaller piece!");
+                int[][] towers = {tower1, tower2};
+                return towers;
+            }
         }
         //Doing the move
         int[] T1 = tower1;
