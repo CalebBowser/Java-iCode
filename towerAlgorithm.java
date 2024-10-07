@@ -128,10 +128,11 @@ public class towerAlgorithm {
     }
     public static int[][] getSteps(int[][] towers){
         int[][] steps = new int[511][2];
+        int[][] partHistory = new int[9][511];
         int[] pieces = new int[9];
         int[] stepAdders = new int[511];
         //Code here, DELETE ME
-        int counter = 0;
+        //int counter = 0;
         for (int i = 0; i < towers.length; i++){
             for (int piece : towers[i]){
                 if (piece != 0){
@@ -139,9 +140,33 @@ public class towerAlgorithm {
                 }
             }
         }
+        int[] lengths = new int[9];
+        lengths[0] = 3;
+        int length = 4;
+        boolean oneTwo = true;
         for (int i = 0; i < stepAdders.length; i++){
-            if (i == 0){
-                stepAdders[i] = 1;
+            stepAdders[0] = 1;
+            stepAdders[1] = 2;
+            stepAdders[2] = 1;
+            if (i > 2){
+                for (int x = 0; x <= length; x++){
+                    if (x == 0){
+                        if (oneTwo){stepAdders[i] = 1;}
+                        else{stepAdders[i] = 2;}
+                    }
+                    stepAdders[i + x + 1] = stepAdders[x];
+                }int part = -1;
+                for (int x = 0; x < lengths.length; x++){
+                    if (lengths[x] == 0){
+                        lengths[x] = length;
+                        part = x;
+                        break;
+                    }
+                }
+                for (int x = 0; x < lengths.length - part; x++){
+                    length += lengths[x];
+                    print(length);
+                }
             }
         }
         for (int i = 0; i < steps.length; i++){
