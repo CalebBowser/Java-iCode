@@ -141,7 +141,7 @@ public class towerAlgorithm {
         }
         int[] lengths = new int[9];
         for (int i = 0; i < lengths.length; i++){
-            int num = Math.pow(2, i+1)-1;
+            int num = (int) Math.pow(2, i+1)-1;
             lengths[i] = num;
             print(num);
         }
@@ -153,12 +153,12 @@ public class towerAlgorithm {
             stepAdders[1] = 2;
             stepAdders[2] = 1;
             if (i > 2){
-                for (int x = 0; x <= length; x++){
+                for (int x = 0; x < length; x++){
                     if (x == 0){
                         if (oneTwo){stepAdders[i] = 1;}
                         else{stepAdders[i] = 2;}
                     }else{
-                        stepAdders[i] = stepAdders[x];}
+                        stepAdders[i-1] = stepAdders[x-1];}
                     i += 1;
                 }
             }i++;
