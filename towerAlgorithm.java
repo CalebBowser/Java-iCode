@@ -112,7 +112,6 @@ public class towerAlgorithm {
     }
     public static int[] getPieces(int[][] towers){
         int[] pieces = new int[9];
-        int counter = 0;
         //Goes through each tower in the array
         for (int i = 0; i < towers.length; i++){
             // Goes through each piece in the tower associated with i
@@ -142,14 +141,14 @@ public class towerAlgorithm {
         }
         int[] lengths = new int[9];
         for (int i = 0; i < lengths.length; i++){
-            int num = (2^i)-1;
+            int num = Math.pow(2, i+1)-1;
             lengths[i] = num;
             print(num);
         }
         //Length == lengths[i]
-        //Change til the 'Stop code, DELETE ME'
         boolean oneTwo = true;
-        for (int i = 0; i < stepAdders.length; i++){
+        int i = 0;
+        for (int length : lengths){
             stepAdders[0] = 1;
             stepAdders[1] = 2;
             stepAdders[2] = 1;
@@ -158,13 +157,13 @@ public class towerAlgorithm {
                     if (x == 0){
                         if (oneTwo){stepAdders[i] = 1;}
                         else{stepAdders[i] = 2;}
-                    }
-                    print("x: " + x + "; i: " + i + "; x+i+1: " + (x+i+1));
-                    stepAdders[i + x + 1] = stepAdders[x];
+                    }else{
+                        stepAdders[i] = stepAdders[x];}
+                    i += 1;
                 }
-            }
+            }i++;
         }
-        for (int i = 0; i < steps.length; i++){
+        for (i = 0; i < steps.length; i++){
             
             //121, 1121, 21211121, 1121112121211121, etc.
             //putting all previous numbers at the end in order (start to finish) and alternating putting a 1 or a 2 in front
