@@ -141,8 +141,13 @@ public class towerAlgorithm {
             }
         }
         int[] lengths = new int[9];
-        lengths[0] = 3;
-        int length = 4;
+        for (int i = 0; i < lengths.length; i++){
+            int num = (2^i)-1;
+            lengths[i] = num;
+            print(num);
+        }
+        //Length == lengths[i]
+        //Change til the 'Stop code, DELETE ME'
         boolean oneTwo = true;
         for (int i = 0; i < stepAdders.length; i++){
             stepAdders[0] = 1;
@@ -154,18 +159,8 @@ public class towerAlgorithm {
                         if (oneTwo){stepAdders[i] = 1;}
                         else{stepAdders[i] = 2;}
                     }
+                    print("x: " + x + "; i: " + i + "; x+i+1: " + (x+i+1));
                     stepAdders[i + x + 1] = stepAdders[x];
-                }int part = -1;
-                for (int x = 0; x < lengths.length; x++){
-                    if (lengths[x] == 0){
-                        lengths[x] = length;
-                        part = x;
-                        break;
-                    }
-                }
-                for (int x = 0; x < lengths.length - part; x++){
-                    length += lengths[x];
-                    print(length);
                 }
             }
         }
