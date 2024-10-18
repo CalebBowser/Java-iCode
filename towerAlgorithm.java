@@ -79,7 +79,16 @@ public class towerAlgorithm {
     public static int[][] solve(int[][] towers){
         //Copies the towers array
         int[][] newTowers = towers;
-        //Goes through each step
+        //Initializes pieceLoc, which tracks where the pieces are 
+        int[] pieceLoc = getPieces(newTowers);
+        //Initializes pieceOrder, which tracks which pieces get moved chronologically
+        int[] pieceOrder = new int[511];
+        //Initializes towerAdders, which tracks how many towers it gets moved to the right
+        int[] towerAdders = new int[511];
+
+        // Gets the towerAdders
+        
+
         
 
         return newTowers;
