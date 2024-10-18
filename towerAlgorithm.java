@@ -76,22 +76,11 @@ public class towerAlgorithm {
         int[][] towers = {T1, T2};
         return towers;
     }
-    public static int[][] solve(int[][] steps, int[][] towers){
+    public static int[][] solve(int[][] towers){
         //Copies the towers array
         int[][] newTowers = towers;
         //Goes through each step
-        for (int[] step : steps){
-            //Checks to see if the step is empty
-            if (!Arrays.equals(step, new int[2])){
-                //If not empty, do the move
-                int[][] result = move(newTowers[step[0]], newTowers[step[1]]);
-                //Update the towers
-                newTowers[step[0]] = result[0];
-                newTowers[step[1]] = result[1];
-                //Print the result
-                printTowers(newTowers);
-            }
-        }
+        
 
         return newTowers;
     }
@@ -125,60 +114,12 @@ public class towerAlgorithm {
             }
         }return pieces;
     }
-    public static int[][] getSteps(int[][] towers){
-        int[][] steps = new int[511][2];
-        int[][] partHistory = new int[9][511];
-        int[] pieces = new int[9];
-        int[] stepAdders = new int[511];
-        //Code here, DELETE ME
-        //int counter = 0;
-        for (int i = 0; i < towers.length; i++){
-            for (int piece : towers[i]){
-                if (piece != 0){
-                    pieces[piece - 1] = i;
-                }
-            }
-        }
-        int[] lengths = new int[9];
-        for (int i = 0; i < lengths.length; i++){
-            int num = (int) Math.pow(2, i+1)-1;
-            lengths[i] = num;
-            print(num);
-        }
-        //Length == lengths[i]
-        boolean oneTwo = true;
-        int i = 0;
-        for (int length : lengths){
-            stepAdders[0] = 1;
-            stepAdders[1] = 2;
-            stepAdders[2] = 1;
-            if (i > 2){
-                for (int x = 0; x < length; x++){
-                    if (x == 0){
-                        if (oneTwo){stepAdders[i] = 1;}
-                        else{stepAdders[i] = 2;}
-                    }else{
-                        stepAdders[i-1] = stepAdders[x-1];}
-                    i += 1;
-                }
-            }i++;
-        }
-        for (i = 0; i < steps.length; i++){
-            
-            //121, 1121, 21211121, 1121112121211121, etc.
-            //putting all previous numbers at the end in order (start to finish) and alternating putting a 1 or a 2 in front
-        }
-        //Stop code, DELETE ME
-
-        return steps;
-    }
     public static void main(String[] args){
         int[] tower1 = {9, 8, 7, 6, 5, 4, 3, 2, 1};
         int[] tower2 = {0, 0, 0, 0, 0, 0, 0, 0, 0};
         int[] tower3 = {0, 0, 0, 0, 0, 0, 0, 0, 0};
         int[][] towers = {tower1, tower2, tower3};
         //This is a test of both the solve and move functions/methods
-        int[][] steps = new int[511][2];
         //Random myGen = new Random();
         //for (int i = 0; i < steps.length; i++){
         //    int[] step = new int[2];
@@ -190,7 +131,6 @@ public class towerAlgorithm {
         //        steps[i] = step;
         //    }
         //}
-        steps = getSteps(towers);
-        towers = solve(steps, towers);
+        towers = solve(towers);
     }
 }
