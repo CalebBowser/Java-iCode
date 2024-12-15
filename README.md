@@ -3,7 +3,7 @@ Java files for Black belt iCode Class.
 This are Hunter's Solutions to the problems.
 Along with his files.
 # Desmos
-These are some desmos links that I want to share with you because I spent a lot of time working on them\n
-I also used r/desmos for help on certain things when I needed it\n
-https://www.desmos.com/calculator/kiv9nrudzb\n
-https://www.desmos.com/calculator/quof0qbana\n
+These are some desmos links that I want to share with you because I spent a lot of time working on them
+<br>I also used r/desmos for help on certain things when I needed it
+<br>https://www.desmos.com/calculator/kiv9nrudzb
+<br>https://www.desmos.com/calculator/quof0qbana
