@@ -1,0 +1,35 @@
+Thank you so much for playing our game!
+
+
+Important notes:
+    It's independent of OS, but on some PCs Cuppy's walking animation cancels and interrupts itself constantly, showing a jittery animation. I'm fixing this as we speak currently, but it doesn't happen on my own PC. If you see it and wanna help, let me know if it's occurring on your system and lemme know if it's Windows, integrated graphics, dedicated GPU etc.  :)
+
+
+Controls:
+    Keyboard:
+        WASD - movement + navigating menus (EXCEPT crafting menu, use your mouse :D )
+        Mouse1 - Fire + accept main menu, death screen, and pause menu
+        Enter - Accept main menu, death screen, and pause
+        Esc - Pause
+        E - open/close crafting menu
+    
+    Controller:
+        Left Stick - Movement + Menu navigation
+        Right Stick - Aiming
+        Right Trigger - Fire
+        Triangle or Y - open/close crafting menu
+        X(PS) or A(Xb) - Accept
+
+
+Ingredients:
+    There are TOPPINGS and there are SPICES. Toppings determine how your bullet moves and spices determine how it affects enemies!
+    
+    Toppings:
+        Tea Leaf:       Recall! Hold down fire and then let go! You can deal more damage if you bait enemies into the wake of your trap!
+        Recurve Banana: Boomerang! Normal damage, but limited range. It is good at covering space!
+        Soft Jelly:     Ricochet! The more it bounces off of walls, the more damage it does!
+    
+    Spices:
+        Matcha Powder:  Roots! Plant enemies into the ground with roots! They cannot move, but they can still hurt you and even use their own projectiles!
+        Chili Powder:   Fire! Set enemies on fire to deal damage over time!
+        Shaved Ice:     Freeze! Freezes enemies in ice, disabling their hurtboxes. They cannot harm you and their AI stops entirely, but you cannot harm them while they're frozen, so it's bad for DPS!

@@ -1,0 +1,61 @@
+Text Attributes:
+
+color : Specifies the color of the text
+
+font-size : Sets the size of the text
+
+font-family : Defines the font that should be used
+
+font-weight : Sets the thickness of the text characters
+
+text-align : Sets the alignment of the text within its container
+
+line-height : Sets the amount of space between lines of text
+
+text-decoration : Adds decoration to the text (like underline, overline, etc.)
+
+
+Background Attributes:
+
+background-color : Sets the background color of an element
+
+background-image : Sets the image as the background of an element
+
+background-repeat : Specifies how background images are repeated
+
+background-size: Specifies the size of the background images
+
+
+Box Model Attributes :
+
+width : Sets the width of an element
+
+heigth : Sets the height of an element
+
+padding : Sets the padding space inside an element
+
+margin : Sets the margin space outside an element
+
+border : Sets the border around an element
+
+
+Positioning Attributes:
+
+position : Specifies the type of positioning method used for an element
+
+top, right, bottom, left : Specifies the position of an absolutely/fixed positioned element
+
+z-index: Specifies the stack order of an element if multiple elements are overlayed with one another, allowing us to control which appears in the front of which
+
+
+Additional Attributes:
+
+display : Specifies the display behavior of an element
+
+visibility : Specifies whether an element is visible or not
+
+overflow : Specifies what happens if content overfllows an element's box
+
+opacity : Sets the opacity level for an element
+
+cursor : Specifies the type of cursor to be displayed when pointing at an element
