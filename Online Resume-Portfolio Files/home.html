@@ -1,5 +1,15 @@
 <main>
-    <div>
+    <header>
+        <nav>
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/about}">About</a></li>
+                <li><a th:href="@{/projects}">Projects</a></li>
+                <li><a th:href="@{/contact}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div >
         <h1>Welcome to My Online Resume</h1>
         <p>This is the home page. Here is an overview of my skills and experiences.</p>
         <div class="container">
@@ -18,4 +28,7 @@
             <button onclick="alert('Welcome to my porfolio!')" class="btn btn-primary">Click Me</button>
         </div>
     </div>
+    <footer>
+        <p>&copy; 2025 My Online Resume</p>
+    </footer>
 </main>
