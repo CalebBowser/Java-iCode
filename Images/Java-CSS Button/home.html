@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HOME</title>
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <h1>Welcome To The Home Page!</h1>
+
+        <img th:src="@{/images/mega_ampharos.gif}" style="border: 2px solid red" alt="Mega Ampharos">
+    </body>
+    <div class="container">
+        <div class="toggle" onclick="toggle()">
+            <div class="circle"></div>
+        </div>
+        <span class="text">False</span>
+    </div>
+    <script>
+        let active = false;
+        function toggle() {
+            let toggle = document.querySelector('.toggle');
+            let text = document.querySelector('.text');
+            active = !active;
+            if(active){
+                toggle.classList.add('active');
+                text.innerHTML = 'True';
+            }
+            else {
+                toggle.classList.remove('active');
+                text.innerHTML = 'False';
+            }
+        }
+
+        document.querySelector('.toggle').addEventListener('mouseover', function(){
+            this.style.backgroundColor = "lightblue";
+        });
+        document.querySelector('.toggle').addEventListener('mouseout', function(){
+            this.style.backgroundColor = "";
+        });
+    </script>
+</html>

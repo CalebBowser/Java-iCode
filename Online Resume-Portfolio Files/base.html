@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About - My Online Resume</title>
+    <link> rel="stylesheet" th:href="@{/css/styles.css}">
+    <link> rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a> th:ref="@{/}">Home</a></li>
+                <li><a> th:ref="@{/}">About</a></li>
+                <li><a> th:ref="@{/}">Projects</a></li>
+                <li><a> th:ref="@{/}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div th:fragment="main">
+            <h1>About Me</h1>
+            <p>Short bio about yourself.</p>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 My Online Resume</p>
+    </footer>
+    <script> th:scr="@{/js/javascript.js}"</script>
+</body>
+
+</html>
